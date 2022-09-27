@@ -1,0 +1,4 @@
+# Handy Machine Learning
+
+```{tableofcontents}
+```

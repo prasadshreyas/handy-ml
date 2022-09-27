@@ -1,0 +1,12 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+chapters:
+- file: notebooks/linear_models
+- file: notebooks/log-reg
+- file: notebooks/hyp-tuning
+- file: notebooks/feature-eng
+- file: notebooks/from_scratch
+
