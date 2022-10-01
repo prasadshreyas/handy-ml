@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Hyperparameter Tuning
+# # Hyperparameter Tuning and Model Evaluation
 
 # We use **cross-validation** to tune the hyperparameters of a model.
 # Some of the common techniques are:
@@ -69,8 +69,39 @@ print("ShuffleSplit:\n", cross_val_score(KNeighborsClassifier(), X, y, cv=ss))
 print("RepeatedStratifiedKFold:\n", cross_val_score(KNeighborsClassifier(), X, y, cv=rskfold))
 
 
-# In[ ]:
+# ## Precision, Recall, F1 Score
+# 
+# Precision, recall, and F1 score are metrics for classification problems. They are defined as follows:
+# 
+# - Precision: The number of true positives divided by the number of true positives plus the number of false positives.
+#   $$\text{precision} = \frac{TP}{TP + FP}$$
+# - Recall: The number of true positives divided by the number of true positives plus the number of false negatives.
+#   $$\text{recall} = \frac{TP}{TP + FN}$$
+# - F1 score: The harmonic mean of precision and recall.
+#   $$ \text{F1 score} = 2 \times \frac{\text{precision} \times \text{recall}}{\text{precision} + \text{recall}}$$
+# 
+# 
+# 
+# 
+# ## ROC Curve and AUC
+# 
+# The ROC curve is created by plotting the true positive rate (TPR) against the false positive rate (FPR) at various threshold settings. The area under the curve (AUC) is a measure of separability. It tells how much model is capable of distinguishing between classes. Higher the AUC, better the model is at predicting 0s as 0s and 1s as 1s. By analogy, higher the AUC, better the model is at distinguishing between patients with disease and no disease.
+# 
+# - x-axis: False Positive Rate (FPR)
+# - y-axis: True Positive Rate (TPR) = Recall
+# 
+# 
+# 
+# 
+# 
+# 
+# 
 
+# ## Residual Plots
+# 
+# Used to check if the model is linearly related to the target variable.
+# 
+# - Residuals are the difference between the observed value of the target variable (y) and the predicted value (ŷ).
+# 
 
-
-
+# 

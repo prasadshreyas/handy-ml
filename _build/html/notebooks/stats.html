@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Feature Engineering &#8212; Handy ML</title>
+    <title>Statistics &#8212; Handy ML</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -54,7 +54,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Hyperparameter Tuning and Model Evaluation" href="hyp-tuning.html" />
+    <link rel="next" title="Hyperparameter Tuning and Model Evaluation" href="hyp-tuning.html" />
+    <link rel="prev" title="Machine Learning from Scratch" href="from_scratch.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -130,8 +131,8 @@ const thebe_selector_output = ".output, .cell_output"
    Machine Learning from Scratch
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="stats.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Statistics
   </a>
  </li>
@@ -140,8 +141,8 @@ const thebe_selector_output = ".output, .cell_output"
    Hyperparameter Tuning and Model Evaluation
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="feature-eng.html">
    Feature Engineering
   </a>
  </li>
@@ -204,7 +205,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/notebooks/feature-eng.ipynb"
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/notebooks/stats.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -264,7 +265,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnotebooks/feature-eng.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnotebooks/stats.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -292,7 +293,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/notebooks/feature-eng.ipynb"
+        <a href="../_sources/notebooks/stats.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -351,32 +352,44 @@ title="Print to PDF"
     </div>
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#scaling">
-   Scaling:
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Statistics
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#encoding">
-   Encoding
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pre-processing">
-   Pre-processing
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#missing-values">
-     Missing Values
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#z-score">
+     z-score
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#p-values">
+     p-values
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#type-i-and-type-ii-errors">
+     Type I and Type II errors
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#t-test">
+     T-test
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#calibration-and-imbalance">
-   Calibration and Imbalance
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#chi-squared-test">
+   Chi-squared test
   </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#statistical-independence">
+     Statistical Independence
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -387,7 +400,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Feature Engineering</h1>
+                <h1>Statistics</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -397,32 +410,44 @@ title="Print to PDF"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#scaling">
-   Scaling:
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Statistics
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#encoding">
-   Encoding
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pre-processing">
-   Pre-processing
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#missing-values">
-     Missing Values
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#z-score">
+     z-score
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#p-values">
+     p-values
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#type-i-and-type-ii-errors">
+     Type I and Type II errors
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#t-test">
+     T-test
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#calibration-and-imbalance">
-   Calibration and Imbalance
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#chi-squared-test">
+   Chi-squared test
   </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#statistical-independence">
+     Statistical Independence
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -434,78 +459,57 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="feature-engineering">
-<h1>Feature Engineering<a class="headerlink" href="#feature-engineering" title="Permalink to this headline">#</a></h1>
-<section id="scaling">
-<h2>Scaling:<a class="headerlink" href="#scaling" title="Permalink to this headline">#</a></h2>
-<p>Scale for all models which use distance based metrics (KNN, SVM, etc.)</p>
-<p><strong>Types of Scaling</strong>:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="statistics">
+<h1>Statistics<a class="headerlink" href="#statistics" title="Permalink to this headline">#</a></h1>
+<section id="z-score">
+<h2>z-score<a class="headerlink" href="#z-score" title="Permalink to this headline">#</a></h2>
+<p>The z-score is a measure of how many standard deviations away from the mean a data point is. It is calculated by subtracting the mean from the data point and dividing by the standard deviation.</p>
+<div class="math notranslate nohighlight">
+\[z = \frac{x - \mu}{\sigma}\]</div>
+</section>
+<section id="p-values">
+<h2>p-values<a class="headerlink" href="#p-values" title="Permalink to this headline">#</a></h2>
+<p>The p-value is the probability of finding the observed, or more extreme, results when the null hypothesis is true. It is a measure of how surprising the results are under the null hypothesis. The smaller the p-value, the more surprising the results are under the null hypothesis.</p>
+<div class="math notranslate nohighlight">
+\[p = P(\text{observed or more extreme results} | \text{null hypothesis is true})\]</div>
+<p>The p-value is a number between 0 and 1. The lower the p-value, the more evidence you have that your results are not due to random chance.</p>
+</section>
+<section id="type-i-and-type-ii-errors">
+<h2>Type I and Type II errors<a class="headerlink" href="#type-i-and-type-ii-errors" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
-<li><p>Standardization: mean = 0, std = 1</p></li>
-<li><p>Min-Max Scaling: min = 0, max = 1</p></li>
+<li><p><strong>Type I error</strong>: rejecting the null hypothesis when it is true. This is also known as a “<strong>false positive</strong>”.</p></li>
+<li><p><strong>Type II error</strong>: failing to reject the null hypothesis when it is false. This is also known as a “<strong>false negative</strong>”.</p></li>
 </ul>
 </section>
-<section id="encoding">
-<h2>Encoding<a class="headerlink" href="#encoding" title="Permalink to this headline">#</a></h2>
-<p><strong>Types of Encoding</strong>:</p>
+<section id="t-test">
+<h2>T-test<a class="headerlink" href="#t-test" title="Permalink to this headline">#</a></h2>
+<p>The t-test is any statistical hypothesis test in which the test statistic follows a Student’s t-distribution under the null hypothesis.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="chi-squared-test">
+<h1>Chi-squared test<a class="headerlink" href="#chi-squared-test" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
-<li><p>One-Hot Encoding</p>
+<li><p><a class="reference external" href="#Chi-squared-test">Chi-squared test</a></p>
 <ul>
-<li><p><span class="math notranslate nohighlight">\(R \rightarrow \{1, 0\}\)</span></p></li>
-<li><p>Creates a new column for each category</p></li>
-</ul>
-</li>
-<li><p>Ordinal Encoding</p>
-<ul>
-<li><p><span class="math notranslate nohighlight">\( categories \rightarrow \{1, 2, 3, \dots\}\)</span></p></li>
-<li><p>Does not create new columns (only one column)</p></li>
-</ul>
-</li>
-<li><p>Binary Encoding</p>
-<ul>
-<li><p><span class="math notranslate nohighlight">\( categories \rightarrow \{00, 01, 10, 11, \dots\}\)</span></p></li>
-</ul>
-</li>
-<li><p>Binning</p>
-<ul>
-<li><p><span class="math notranslate nohighlight">\( set(n) \rightarrow  len(\{0, 1, 2, \dots\}) &lt; len(set(n))\)</span></p></li>
+<li><p><a class="reference external" href="#Chi-squared-test-for-independence">Chi-squared test for independence</a></p></li>
+<li><p><a class="reference external" href="#Chi-squared-test-for-goodness-of-fit">Chi-squared test for goodness of fit</a></p></li>
+<li><p><a class="reference external" href="#Chi-squared-test-for-homogeneity">Chi-squared test for homogeneity</a></p></li>
+<li><p><a class="reference external" href="#Chi-squared-test-for-association">Chi-squared test for association</a></p></li>
+<li><p><a class="reference external" href="#Chi-squared-test-for-independence-with-missing-values">Chi-squared test for independence with missing values</a></p></li>
+<li><p><a class="reference external" href="#Chi-squared-test-for-goodness-of-fit-with-missing-values">Chi-squared test for goodness of fit with missing values</a></p></li>
+<li><p><a class="reference external" href="#Chi-squared-test-for-homogeneity-with-missing-values">Chi-squared test for homogeneity with missing values</a></p></li>
+<li><p><a class="reference external" href="#Chi-squared-test-for-association-with-missing-values">Chi-squared test for association with missing values</a></p></li>
+<li><p><a class="reference external" href="#Chi-squared-test-for-independence-with-missing-values-and-weights">Chi-squared test for independence with missing values and weights</a></p></li>
+<li><p><a class="reference external" href="#Chi-squared-test-for-goodness-of-fit-with-missing-values-and-weights">Chi-squared test for goodness of fit with missing values and weights</a></p></li>
+<li><p><a class="reference external" href="#Chi-squared-test-for-homogeneity-with-missing-values-and-weights">Chi-squared test for homogeneity with missing values and weights</a></p></li>
+<li><p><a class="reference external" href="#Chi-squared-test-for-association-with-missing-values-and-weights">Chi-squared test for association with missing values and weights</a></p></li>
 </ul>
 </li>
 </ul>
-</section>
-<section id="pre-processing">
-<h2>Pre-processing<a class="headerlink" href="#pre-processing" title="Permalink to this headline">#</a></h2>
-<section id="missing-values">
-<h3>Missing Values<a class="headerlink" href="#missing-values" title="Permalink to this headline">#</a></h3>
-<ul class="simple">
-<li><p>Drop</p></li>
-<li><p>Impute</p>
-<ul>
-<li><p>Mean</p></li>
-<li><p>Median</p></li>
-<li><p>Mode</p></li>
-<li><p>KNN</p></li>
-<li><p>MICE</p></li>
-</ul>
-</li>
-</ul>
-<p>To-do:</p>
-<ul class="contains-task-list simple">
-<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Mean vs Median</p>
-<ul>
-<li><p>Mean is sensitive to outliers, so use median for skewed data</p></li>
-</ul>
-</li>
-</ul>
-</section>
-</section>
-<section id="calibration-and-imbalance">
-<h2>Calibration and Imbalance<a class="headerlink" href="#calibration-and-imbalance" title="Permalink to this headline">#</a></h2>
-<ol class="simple">
-<li><p>SMOTE - Synthetic Minority Oversampling Technique</p></li>
-</ol>
-<p>Adds synthetic data to the minority class to balance the dataset.</p>
-<p>For each minority class sample, <span class="math notranslate nohighlight">\(x_i\)</span>, <span class="math notranslate nohighlight">\(k\)</span> nearest neighbors are found. Then, <span class="math notranslate nohighlight">\(k\)</span> synthetic samples are created by randomly choosing one of the <span class="math notranslate nohighlight">\(k\)</span> nearest neighbors and randomly interpolating between the two points in feature space.</p>
+<section id="statistical-independence">
+<h2>Statistical Independence<a class="headerlink" href="#statistical-independence" title="Permalink to this headline">#</a></h2>
+<p>Independence means that one variable doesn’t “say anything” about another variable.</p>
+<p>The null hypothesis for a chi-square independence test is that <em>two categorical variables are independent in some population.</em></p>
 </section>
 </section>
 
@@ -536,12 +540,19 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="hyp-tuning.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="from_scratch.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Hyperparameter Tuning and Model Evaluation</p>
+            <p class="prev-next-title">Machine Learning from Scratch</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="hyp-tuning.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Hyperparameter Tuning and Model Evaluation</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>

@@ -42,4 +42,15 @@
 # - [ ] Mean vs Median
 #   - Mean is sensitive to outliers, so use median for skewed data
 
+# ## Calibration and Imbalance
+# 
+# 1. SMOTE - Synthetic Minority Oversampling Technique
+# 
+# Adds synthetic data to the minority class to balance the dataset.
+# 
+# For each minority class sample, $x_i$, $k$ nearest neighbors are found. Then, $k$ synthetic samples are created by randomly choosing one of the $k$ nearest neighbors and randomly interpolating between the two points in feature space.
+# 
+# 
+# 
+
 # 

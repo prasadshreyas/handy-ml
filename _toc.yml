@@ -6,7 +6,10 @@ root: intro
 chapters:
 - file: notebooks/linear_models
 - file: notebooks/log-reg
+- file: notebooks/from_scratch
+- file: notebooks/stats
 - file: notebooks/hyp-tuning
 - file: notebooks/feature-eng
-- file: notebooks/from_scratch
+# - file: notebooks/decision-trees
+
 
