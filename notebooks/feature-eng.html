@@ -54,7 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Hyperparameter Tuning" href="hyp-tuning.html" />
+    <link rel="prev" title="Hyperparameter Tuning and Model Evaluation" href="hyp-tuning.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -137,7 +137,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="hyp-tuning.html">
-   Hyperparameter Tuning
+   Hyperparameter Tuning and Model Evaluation
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -373,6 +373,11 @@ title="Print to PDF"
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#calibration-and-imbalance">
+   Calibration and Imbalance
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -413,6 +418,11 @@ title="Print to PDF"
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#calibration-and-imbalance">
+   Calibration and Imbalance
+  </a>
  </li>
 </ul>
 
@@ -489,6 +499,14 @@ title="Print to PDF"
 </ul>
 </section>
 </section>
+<section id="calibration-and-imbalance">
+<h2>Calibration and Imbalance<a class="headerlink" href="#calibration-and-imbalance" title="Permalink to this headline">#</a></h2>
+<ol class="simple">
+<li><p>SMOTE - Synthetic Minority Oversampling Technique</p></li>
+</ol>
+<p>Adds synthetic data to the minority class to balance the dataset.</p>
+<p>For each minority class sample, <span class="math notranslate nohighlight">\(x_i\)</span>, <span class="math notranslate nohighlight">\(k\)</span> nearest neighbors are found. Then, <span class="math notranslate nohighlight">\(k\)</span> synthetic samples are created by randomly choosing one of the <span class="math notranslate nohighlight">\(k\)</span> nearest neighbors and randomly interpolating between the two points in feature space.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -522,7 +540,7 @@ title="Print to PDF"
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Hyperparameter Tuning</p>
+            <p class="prev-next-title">Hyperparameter Tuning and Model Evaluation</p>
         </div>
     </a>
 </div>
