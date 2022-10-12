@@ -10,5 +10,6 @@ Resources
 | Conjugate prior: Why? 	| Conjugacy in Bayesian Inference        	| Gregory Gundersen        	| [Link](http://gregorygundersen.com/blog/2019/03/16/conjugacy/)                      	|
 
 |Calculus|The essence of calculus|Grant Sanderson                          	|[Link](https://www.youtube.com/playlist?list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr)|
+
 |                       	|                                        	|                          	|                                                                                     	|
 |                       	|                                        	|                          	|                                                                                     	|
